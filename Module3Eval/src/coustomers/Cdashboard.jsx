@@ -3,7 +3,7 @@ import { useData} from '../context/Context'
 import Sidevar from '../components/Sidevar'
 
 function Cdashboard() {
- const {form, Formfunction, handleSubmit} = useData()
+ const {form, Formfunction, handleSubmit,update} = useData()
 
 
 useEffect(()=>{
@@ -26,6 +26,7 @@ useEffect(()=>{
         <div >
          {feet.map((item)=>(
             <li key={item.id}>
+                   <p>{form.image}</p>
                    <p>{item.restaurantID}</p>
                    <p>{item.restaurantName}</p>
                    <p>{item.address}</p>

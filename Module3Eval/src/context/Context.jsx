@@ -33,12 +33,29 @@ export const DataProvider =({children}) => {
 const  Formfunction =()=>{
     setForm()
 }
+
+
+const update =(id, newform)=> {
+    setForm(prev=>
+        prev.map((item)=>
+          item.id===id ? {...item, item:newform } : prev
+        )
+    )
+}
   
+const deleteform =(id)=>{
+   setForm((prev)=>
+    prev.filter((item) => {item.id !== id})
+)
+}
     return (
         <DataContext.Provider value={{
             form,
+            update,
             Formfunction,
-            handleSubmit
+            handleSubmit,
+            setForm,
+            deleteform
         }}>
             {children}
         </DataContext.Provider>

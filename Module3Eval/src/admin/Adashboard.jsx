@@ -1,36 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useData} from '../context/Context'
 
 function Adashboard() {
+    const { updateform, deleteform, form,  } = useData()
+
+    useEffect(()=>{
+        updateform(item.id)
+        deleteform(item.id)
+    })
 
   return (
    <div>
-     <div>
-        <form onSubmit={handleSubmit}>
-     <input type="text" value={form.restaurantID} 
-     onChange={((e) => setForm([...form, e.target.value]))}/>
-
-      <input type="text" value={form.restaurantName} 
-      onChange={((e) => setForm([...form, e.target.value]))}/>
-
-      <input type="text" value={form.address} 
-      onChange={((e) => setForm([...form, e.target.value]))}/>
-
-     <button type='submit'>ADD RASTURANT</button>
-     </form>
-   </div>
-
-
-        <div>
+    
          {feet.map((item)=>(
             <li key={item.id}>
+                    <p>{form.image}</p>
                    <p>{item.restaurantID}</p>
                    <p>{item.restaurantName}</p>
                    <p>{item.address}</p>
+                   <button onClick={(()=>updateform(item.id))}>Update</button>
+                   <button onClick={(()=>deleteform(item.id))}>Delete</button>
             </li>
           ))}
 
-        </div>
-    </div>
+   </div>
+    
   )
 }
 
