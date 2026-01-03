@@ -1,12 +1,19 @@
 import React from 'react'
+import { useRef, useEffect} from 'react'
 
-function Adashboard() {
+function Sidevar() {
+    const nameRef = useRef()
 
+    useEffect((useRef)=>{
+      const useRef =()=>{
+        nameRef.value.focus()
+      }
+    },[])
+    
   return (
-   <div>
-     <div>
+        <div>
         <form onSubmit={handleSubmit}>
-     <input type="text" value={form.restaurantID} 
+     <input type="text" value={form.restaurantID} ref={nameRef}
      onChange={((e) => setForm([...form, e.target.value]))}/>
 
       <input type="text" value={form.restaurantName} 
@@ -17,21 +24,9 @@ function Adashboard() {
 
      <button type='submit'>ADD RASTURANT</button>
      </form>
-   </div>
 
-
-        <div>
-         {feet.map((item)=>(
-            <li key={item.id}>
-                   <p>{item.restaurantID}</p>
-                   <p>{item.restaurantName}</p>
-                   <p>{item.address}</p>
-            </li>
-          ))}
-
-        </div>
     </div>
   )
 }
 
-export default Adashboard
+export default Sidevar
